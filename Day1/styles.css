@@ -1,0 +1,33 @@
+/*my styles*/
+
+body {
+	background: #122a4f;
+	font-size: 1em;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: #efefef;
+}
+
+#grid {
+    width: 300px;
+    cursor: pointer;
+}
+
+.tile {
+    width: 30px;
+    height: 30px;
+    background-color: #777;
+    outline: 1px solid goldenrod;
+    float: left;
+}
+
+.tile:hover {
+    background-color: #999;
+}
+
+.moveable {
+    background-color: #add8e6;
+}
+
+.moveable:hover {
+    background-color: #c8ebf7;
+}
