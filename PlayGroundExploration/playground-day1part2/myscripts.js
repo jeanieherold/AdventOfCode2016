@@ -119,24 +119,12 @@ for (var i = 0; i < wherebeens.length; i++) {
 }
 
 //figure out how to find duplicate Move objects in the array 
-        // var holds = [];
-        // var dups = [];
-        // var temp;
-        // for (var i = 0; i < moves.length; i++) {
-        //     holds = moves;
-        //     for (var j = 1; j < holds.length; j++) {
-        //             if(holds[j].xCoord === moves[i].xCoord && holds[j].yCoord === moves[i].yCoord) { 
-        //                     console.log('equal');
-        //             }
-        //     }
-        // }
- 
- 
+//stringify the array of objects --> moves is the array of objects
 
-
-
+//object to hold the stringified objects
 var counter = {}
 
+//loop through stringified object and find duplicates
 moves.forEach(function(obj) {
     var key = JSON.stringify(obj);
     counter[key] = (counter[key] || 0) + 1;
@@ -145,8 +133,8 @@ moves.forEach(function(obj) {
     }
 })
 
-console.log(counter);
-console.log(dups);
+console.log(counter); //stringified version
+console.log(dups); //array of duplicate objects in moves in stringified version
 
 //understanding how to access items in counter object
 counter[Object.keys(counter)[0]]  // = 1
