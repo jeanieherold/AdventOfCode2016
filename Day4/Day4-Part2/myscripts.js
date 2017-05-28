@@ -15,18 +15,7 @@ function Room (name, sect, checksum) {
 	this.checksum = checksum;
 }
 
-//Letter-Value Object-----------------------------
-function LetterVal (character, count) {
-       this.character = character;
-       this.count = count;
-}
-
 //functions 
-
-//function to add an array
-function add(a, b) {
-    return a + b;
-}
 
 //function to rotate alphabet by number * sect id
 function rotate (sect) {
@@ -77,7 +66,7 @@ function decryptedline (line) {
 			default: console.log('i have no idea');
 		}
 	}
-	
+		
 	decryptedline = decryptedline.join('');
 	return decryptedline;
 }
