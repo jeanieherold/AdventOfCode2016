@@ -10,7 +10,7 @@ var letters = [];
 var lettersStringified = [];
 var letterlengths = [];
 var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-var whatevers = [];
+
 //prototypes
 
 //create a Line Object
@@ -49,12 +49,12 @@ function findRealChecksum (line) {
 	// sort by value and then letter if equal value
 
 	letters.sort(function(a, b){
-    if(a.count === b.count){
-        var x = a.character, y = b.character;
-        
-        return x < y ? -1 : x > y ? 1 : 0;
-    }
-    return b.count - a.count;
+		if(a.count === b.count){
+			var x = a.character, y = b.character;
+			
+			return x < y ? -1 : x > y ? 1 : 0;
+		}
+		return b.count - a.count;
 	});
 	
 	// lettersStringified = JSON.stringify(letters);
