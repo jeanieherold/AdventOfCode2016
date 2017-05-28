@@ -6,6 +6,7 @@ var lines = [];
 var originalchecksums = [];
 var realchecksums = [];
 var sectIds = [];
+var sectintegers = [];
 var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 //prototypes
 
@@ -30,6 +31,11 @@ function findLetterOccurrance(letter, line) {
 	line = line.replace(regex, "");
 	return line.length;
 }// end find letter occurrances
+
+//function to add an array
+function add(a, b) {
+    return a + b;
+}
 
 //function to create real checksum list--------------
 function findRealChecksum (line) {
@@ -104,6 +110,21 @@ document.getElementById("openFile").addEventListener('change', function() {
 			originalchecksums.push(room.checksum);
 		})
 		console.log('orig: ' + originalchecksums);
+
+		//find sect of real checksums
+		for(i = 0; i < originalchecksums.length; i++) {
+			if (originalchecksums[i] === realchecksums[i]) {
+				sectIds.push(rooms[i].sect);
+			}
+		}
+		for(i = 0; i < sectIds.length; i++) {
+			num = parseInt(sectIds[i]);
+			sectintegers.push(num);
+		}
+
+		console.log(sectintegers);
+
+		sum = sectintegers.reduce(add, 0);
 
 		console.log(sum);
 
