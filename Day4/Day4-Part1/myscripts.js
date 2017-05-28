@@ -1,4 +1,4 @@
-// Advent of Code 2016 Day 4 Part 1
+// Advent of Code 2016 Day 4 Part 1 - output for my input.txt file = 278221
 var read;
 var sum = 0;
 var rooms = [];
