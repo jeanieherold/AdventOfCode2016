@@ -2,25 +2,21 @@
 var read;
 var sum = 0;
 var rooms = [];
+var lines = [];
 var originalchecksums = [];
 var realchecksums = [];
-var holds = [];
 var sectIds = [];
-var letters = [];
-var lettersStringified = [];
-var letterlengths = [];
 var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-
 //prototypes
 
-//create a Line Object
+//Line Object
 function Room (name, sect, checksum) {
 	this.name = name;
 	this.sect = sect;
 	this.checksum = checksum;
 }
 
-//create a Letters object prototype-----------------
+//Letter-Value Object-----------------
 function LetterVal (character, count) {
        this.character = character;
        this.count = count;
@@ -38,6 +34,8 @@ function findLetterOccurrance(letter, line) {
 //function to create real checksum list--------------
 function findRealChecksum (line) {
 	var tempChecksum = [];
+	var	letters = [];
+	var	holds = [];
 	//find actual checksums of given encrypted names
 	alphabet.forEach(function(character) {
 		var find;
@@ -55,22 +53,16 @@ function findRealChecksum (line) {
 			return x < y ? -1 : x > y ? 1 : 0;
 		}
 		return b.count - a.count;
-	});
-	
-	// lettersStringified = JSON.stringify(letters);
-	// console.log(lettersStringified);
+		});
 
 	//array of Real Checksum for each line
-	for (var i = 1; i <= 5; i++) {
-		var hold = letters.shift();
-		holds.push(hold.character);
+	for (var i = 0; i <= 4; i++) {
+		var hold = letters[i].character;
+		holds.push(hold);
 	}
-	
+
 	tempChecksum = holds.join('');
 	
-	letters = [];
-	holds = [];
-
 	return tempChecksum;
 
 }//end find real checksums---------------------------
@@ -100,11 +92,9 @@ document.getElementById("openFile").addEventListener('change', function() {
 			rooms.push(room);
 		})
 
-		console.log(JSON.stringify(rooms));
-
 		//call findRealChecksum for each line
-		lines.forEach(function(line) {
-			var temp = findRealChecksum(line);
+		rooms.forEach(function(room) {
+			var temp = findRealChecksum(room.name);
 			realchecksums.push(temp);
 		})
 
@@ -113,18 +103,7 @@ document.getElementById("openFile").addEventListener('change', function() {
 		rooms.forEach(function(room){
 			originalchecksums.push(room.checksum);
 		})
-
 		console.log('orig: ' + originalchecksums);
-		
-		rooms.forEach(function(room){
-			for(i=0; i < realchecksums.length; i++) {
-				if(room.checksum === realchecksums[i]) {
-					room.sect = parseInt(room.sect);
-					sectIds.push(room.sect);
-					sum += room.sect;
-				}
-			}
-		})
 
 		console.log(sum);
 
