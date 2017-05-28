@@ -23,7 +23,7 @@ function listToMatrix(list, elementsPerSubArray) {
     }
     return matrix;
 }
-
+//read file and do something with the file
 document.getElementById("openFile").addEventListener('change', function() {
 	var fr = new FileReader();
 	fr.onload = function() { 
