@@ -8,9 +8,10 @@ var realchecksums = [];
 var sectIds = [];
 var sectintegers = [];
 var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
 //prototypes
 
-//Line Object
+//Line to Room Object
 function Room (name, sect, checksum) {
 	this.name = name;
 	this.sect = sect;
@@ -130,7 +131,6 @@ document.getElementById("openFile").addEventListener('change', function() {
 
 		//display input file to the page
 		document.getElementById('fileContents').textContent = read;
-		//$(#fileContents).textContent = read;
 	}
 	fr.readAsText(this.files[0]);
 })
