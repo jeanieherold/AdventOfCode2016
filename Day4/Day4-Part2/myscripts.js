@@ -87,8 +87,8 @@ document.getElementById("openFile").addEventListener('change', function() {
 		//separate each line into name, sect and checksum
 		lines.forEach(function(line) {
 			line.replace(/[\n\r]/g, '');
-			checksum = (line.slice(-6,-1));
-			sect = (line.slice(-10, -7));
+			checksum = line.slice(-6,-1);
+			sect = line.slice(-10, -7);
 			name = line.slice(0, -10);
 			room = new Room (name, sect, checksum);
 			rooms.push(room);
