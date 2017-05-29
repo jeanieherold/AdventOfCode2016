@@ -8,8 +8,8 @@ var password = new Array(8);
 
 function find5ZeroHash (prefix, index) {
 	
-	for (var i = 0; i < count; i++) {
-		while((!(hexHash[0] === '0' && hexHash[1] === '0' && hexHash[2] === '0' && hexHash[3] === '0' && hexHash[4] === '0') && (count < 8))  {
+	for (var i = 0; i < 8; i++) {
+		while(!(hexHash[0] === '0' && hexHash[1] === '0' && hexHash[2] === '0' && hexHash[3] === '0' && hexHash[4] === '0'))  {
 			stringToHash = prefix + index;
 			hexHash = SparkMD5.hash(stringToHash);
 			index++;
@@ -17,7 +17,6 @@ function find5ZeroHash (prefix, index) {
 		if ([hexHash[6]] < password.length) {
 			if (typeof password[hexHash[6] === 'undefined']) {
 				password[(hexHash[5])] = hexHash[6];
-				count++;
 			}
 		}
 		console.log(password);
