@@ -4,27 +4,37 @@ var prefix;
 var index = 0;
 var stringToHash;
 var hexHash = '';
-var password = new Array(8);
+var password = [];
+var position;
+var hexchar;
+var keepon = '';
 
+//Objects
+
+//functions
 function find5ZeroHash (prefix, index) {
-	
-	for (var i = 0; i < 8; i++) {
+
+	var newMethodPassword;
+
+	while (keepon.length < 10) {
 		while(!(hexHash[0] === '0' && hexHash[1] === '0' && hexHash[2] === '0' && hexHash[3] === '0' && hexHash[4] === '0'))  {
 			stringToHash = prefix + index;
 			hexHash = SparkMD5.hash(stringToHash);
 			index++;
 		}
-		if ([hexHash[6]] < password.length) {
-			if (typeof password[hexHash[6] === 'undefined']) {
-				password[(hexHash[5])] = hexHash[6];
-			}
+		position = parseInt(hexHash[5]);
+		hexchar = hexHash[6];
+	
+		if ($.isNumeric(position) && $.type(password[position]) === 'undefined') {
+				password[position] = hexchar;
 		}
+
+		keepon = password.join('');
 		console.log(password);
-		console.log(stringToHash);
-		console.log(hexHash);
 		hexHash = '';
 	}
-	return password;
+	newMethodPassword = keepon.slice(0,8);
+	return newMethodPassword;
 }
 
 //main section --> 
