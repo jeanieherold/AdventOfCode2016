@@ -1,4 +1,4 @@
-//Adent of Code Day 1
+//Adent of Code Day 1 part 2
 alert('Bunny Tracks');
  
 var x = 0;
