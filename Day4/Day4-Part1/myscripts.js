@@ -18,7 +18,7 @@ function Room (name, sect, checksum) {
 	this.checksum = checksum;
 }
 
-//Letter-Value Object-----------------
+//Letter-Value Object (to use in sort)------------
 function LetterVal (character, count) {
        this.character = character;
        this.count = count;
