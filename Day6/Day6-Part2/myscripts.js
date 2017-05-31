@@ -28,7 +28,7 @@ function findLetterOccurrance(letter, line) {
 
 //function
 function frequent(line) {
-	var mostfrequent;
+	var leastfrequent;
 	var	letters = [];
 	var	holds = [];
 	//find actual checksums of given encrypted names
@@ -55,9 +55,9 @@ function frequent(line) {
 		}
 	}
 	console.log(holds[0]);
-	mostfrequent = holds[0];
+	leastfrequent = holds[0];
 	
-	return mostfrequent;
+	return leastfrequent;
 
 }
 
