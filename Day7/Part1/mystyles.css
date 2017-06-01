@@ -1,0 +1,14 @@
+body {
+	background: #122a4f;
+	font-size: 1em;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: #efefef;
+}
+
+#showresult {
+  width:98%;
+  height: 300px;    
+}
+
+
+
